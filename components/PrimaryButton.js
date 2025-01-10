@@ -12,7 +12,6 @@ function PrimaryButton({ children }) {
     <View style={styles.buttonOuterContainer}>
       <Pressable
         style={({ pressed }) => {
-          console.log(pressed);
           const style = pressed
             ? [styles.buttonInnerContainer, styles.pressed, { elevation: 0 }]
             : styles.buttonInnerContainer;
@@ -37,10 +36,11 @@ const styles = StyleSheet.create({
   buttonInnerContainer: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-    elevation: 2,
+    // elevation: 2,
   },
   buttonText: {
     color: "white",
+    textAlign: "center",
   },
   pressed: {
     backgroundColor: "yellow",

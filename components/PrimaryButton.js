@@ -13,7 +13,7 @@ function PrimaryButton({ children }) {
       <Pressable
         style={({ pressed }) => {
           const style = pressed
-            ? [styles.buttonInnerContainer, styles.pressed, { elevation: 0 }]
+            ? [styles.buttonInnerContainer, styles.pressed]
             : styles.buttonInnerContainer;
           return style;
         }}

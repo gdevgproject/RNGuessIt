@@ -2,36 +2,36 @@ import { Alert, StyleSheet, TextInput, View } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import { useState } from "react";
 
-function StartGameScreen() {
+function StartGameScreen(props) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   function numberInputHandler(enteredNumber) {
     setEnteredNumber(enteredNumber);
   }
 
-  // FIXME: triển khai hàm resetInputHandler ở đây
+  // 1. triển khai hàm resetInputHandler ở đây
   function resetInputHandler() {
     setEnteredNumber("");
   }
 
-  // TODO: triển khai hàm confirmInputHandler ở đây
+  // 2. triển khai hàm confirmInputHandler ở đây
   function confirmInputHandler() {
-    // convert to Int
+    // 3. convert to Int
     const chosenNumber = parseInt(enteredNumber);
-    // check NaN, <= 0, >= 99
 
+    // 4. check NaN, <= 0, >= 99
     if (!isFinite(chosenNumber) || chosenNumber <= 0 || chosenNumber >= 99) {
-      // Alert API: alert message
-
-      // press ok => reset the input content
-
+      // 5. Alert API: alert message
       Alert.alert(
         "invalid Number!",
         "Number has to be a number between 1 and 99",
         [{ text: "Ok", style: "destructive", onPress: resetInputHandler }]
       );
     }
+
+    props.onPickNumber(chosenNumber);
   }
+
   return (
     <View style={styles.inputContainer}>
       <TextInput

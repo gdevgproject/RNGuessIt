@@ -1,6 +1,7 @@
 import { Alert, StyleSheet, TextInput, View } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 function StartGameScreen(props) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -33,7 +34,7 @@ function StartGameScreen(props) {
   }
 
   return (
-    <View style={styles.inputContainer}>
+    <SafeAreaView style={styles.inputContainer}>
       <TextInput
         style={styles.numberInput}
         maxLength={2}
@@ -51,7 +52,7 @@ function StartGameScreen(props) {
           <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

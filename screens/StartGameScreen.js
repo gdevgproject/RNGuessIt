@@ -2,6 +2,7 @@ import { Alert, StyleSheet, TextInput, View } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Colors from "../constants/colors";
 
 function StartGameScreen(props) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -29,7 +30,6 @@ function StartGameScreen(props) {
         [{ text: "Ok", style: "destructive", onPress: resetInputHandler }]
       );
     }
-
     props.onPickNumber(chosenNumber);
   }
 
@@ -58,7 +58,7 @@ function StartGameScreen(props) {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    backgroundColor: "#4e0329",
+    backgroundColor: Colors.primary800,
     marginTop: 100,
     marginHorizontal: 24,
     padding: 16,
@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   numberInput: {
-    color: "#ddb52f",
+    color: Colors.accent500,
     height: 58,
     fontSize: 24,
-    borderBottomColor: "#ddb52f",
+    borderBottomColor: Colors.accent500,
     borderBottomWidth: 2,
     marginVertical: 8,
     fontWeight: "bold",

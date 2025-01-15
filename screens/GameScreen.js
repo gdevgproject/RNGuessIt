@@ -2,7 +2,7 @@ import { Alert, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PrimaryButton from "../components/ui/PrimaryButton";
 // 1. chương trình đoán number
 
@@ -21,13 +21,21 @@ let maxBoundary = 100;
 // 2. 2 nút để gợi ý cho chương trình là số đó lớn hơn hay nhỏ hơn
 // 3. Hiển thị số đã đoán
 // 4. Đoán lại dựa trên feedback
-function GameScreen({ userNumber }) {
+function GameScreen({ userNumber, ...props }) {
   const initialGuess = generateRandomBetween(
     minBoundary,
     maxBoundary,
     userNumber
   );
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+  props.onGameOver;
+
+  useEffect(() => {
+    if (currentGuess === userNumber) {
+      props.onGameOver();
+    }
+    console.log();
+  }, [currentGuess, userNumber, props.onGameOver]);
 
   function nextGuessHandler(direction) {
     if (

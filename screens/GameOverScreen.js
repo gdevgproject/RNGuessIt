@@ -1,3 +1,10 @@
-function GameOverScreen() {}
+import { View, Text } from "react-native";
+import React from "react";
 
-export default GameOverScreen;
+export default function GameOverScreen() {
+  return (
+    <View>
+      <Text>GameOverScreen</Text>
+    </View>
+  );
+}

@@ -1,5 +1,5 @@
 import { Alert, StyleSheet, TextInput, View } from "react-native";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/ui/PrimaryButton";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "../constants/colors";

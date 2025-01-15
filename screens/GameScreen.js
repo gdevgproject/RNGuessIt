@@ -22,11 +22,7 @@ let maxBoundary = 100;
 // 3. Hiển thị số đã đoán
 // 4. Đoán lại dựa trên feedback
 function GameScreen({ userNumber, ...props }) {
-  const initialGuess = generateRandomBetween(
-    minBoundary,
-    maxBoundary,
-    userNumber
-  );
+  const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   props.onGameOver;
 
